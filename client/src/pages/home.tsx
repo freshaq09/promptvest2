@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, Plus, MessageSquare } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Sidebar } from "@/components/sidebar";
 import { PromptCard } from "@/components/prompt-card";
 import { AddPromptModal } from "@/components/add-prompt-modal";
@@ -107,15 +108,18 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            {selectedCollectionId && (
-              <Button
-                onClick={() => setShowAddPromptModal(true)}
-                className="bg-green-600 hover:bg-green-700 text-white"
-              >
-                <Plus className="h-4 w-4 mr-2" />
-                Add Prompt
-              </Button>
-            )}
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              {selectedCollectionId && (
+                <Button
+                  onClick={() => setShowAddPromptModal(true)}
+                  className="bg-green-600 hover:bg-green-700 text-white"
+                >
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Prompt
+                </Button>
+              )}
+            </div>
           </div>
         </div>
 
