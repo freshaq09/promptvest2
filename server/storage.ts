@@ -51,7 +51,7 @@ export class DatabaseStorage implements IStorage {
     await db.delete(prompts).where(eq(prompts.collectionId, id));
     
     const result = await db.delete(collections).where(eq(collections.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   }
 
   async getPromptsByCollection(collectionId: number): Promise<Prompt[]> {
@@ -92,7 +92,7 @@ export class DatabaseStorage implements IStorage {
 
   async deletePrompt(id: number): Promise<boolean> {
     const result = await db.delete(prompts).where(eq(prompts.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   }
 
   async reorderPrompts(collectionId: number, promptIds: number[]): Promise<boolean> {
