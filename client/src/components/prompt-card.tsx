@@ -63,7 +63,7 @@ export function PromptCard({
   return (
     <>
       <Card
-        className="p-6 hover:shadow-md transition-shadow bg-white border border-gray-200"
+        className="p-6 hover:shadow-lg transition-shadow bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 rounded-xl"
         draggable
         onDragStart={(e) => onDragStart(e, prompt.id)}
         onDragEnd={onDragEnd}
@@ -72,7 +72,7 @@ export function PromptCard({
       >
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-medium">
+            <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium bg-gradient-to-br from-green-500 to-green-600 text-white">
               {index + 1}
             </div>
           </div>

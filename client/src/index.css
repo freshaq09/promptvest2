@@ -168,3 +168,9 @@
 .animate-expand {
   animation: expand 1s ease-out 0.8s both;
 }
+
+@layer utilities {
+  .gradient-bg {
+    @apply bg-gradient-to-br from-green-100 via-white to-white dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900;
+  }
+}
