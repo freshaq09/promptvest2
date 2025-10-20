@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Copy, Edit, Trash2, GripVertical } from "lucide-react";
@@ -62,19 +63,25 @@ export function PromptCard({
 
   return (
     <>
-      <Card
-        className="p-6 hover:shadow-md transition-shadow bg-white border border-gray-200"
-        draggable
-        onDragStart={(e) => onDragStart(e, prompt.id)}
-        onDragEnd={onDragEnd}
-        onDragOver={onDragOver}
-        onDrop={(e) => onDrop(e, prompt.id)}
+      <motion.div
+        layout
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2 }}
       >
-        <div className="flex items-start justify-between mb-3">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-medium">
-              {index + 1}
-            </div>
+        <Card
+          className="p-6 hover:shadow-lg transition-shadow bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 rounded-xl"
+          draggable
+          onDragStart={(e) => onDragStart(e, prompt.id)}
+          onDragEnd={onDragEnd}
+          onDragOver={onDragOver}
+          onDrop={(e) => onDrop(e, prompt.id)}
+        >
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium bg-gradient-to-br from-green-500 to-green-600 text-white">
+                {index + 1}
+              </div>
           </div>
           <div className="flex items-center gap-2">
             <Button
@@ -112,7 +119,8 @@ export function PromptCard({
             {prompt.content}
           </p>
         </div>
-      </Card>
+        </Card>
+      </motion.div>
 
       <EditPromptModal
         prompt={prompt}

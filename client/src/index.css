@@ -67,6 +67,10 @@
     @apply border-border;
   }
 
+  html {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -163,4 +167,10 @@
 
 .animate-expand {
   animation: expand 1s ease-out 0.8s both;
+}
+
+@layer utilities {
+  .gradient-bg {
+    @apply bg-gradient-to-br from-green-100 via-white to-white dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900;
+  }
 }
